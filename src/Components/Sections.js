@@ -16,10 +16,12 @@ import IMG15 from './Images/coffee15.webp';
 import IMG16 from './Images/coffee16.webp';
 import IMG18 from './Images/coffee18.webp';
 import IMG19 from './Images/coffee19.webp';
-
+import IMG20 from './Images/coffee20.webp';
+import IMG21 from './Images/coffee21.webp';
+import IMG22 from './Images/coffee22.webp';
 const IMGARR = [
-    IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, IMG11, IMG12, IMG13, IMG14, IMG15, IMG16, IMG18, IMG19
-]
+    IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, IMG11, IMG12, IMG13, IMG14, IMG15, IMG16, IMG18, IMG19, IMG20, IMG21, IMG22
+];
 
 var nextkey = 0;
 function getkey(){
@@ -31,34 +33,44 @@ function getkey(){
 export default function Sections({javaRef}){
     return(
         <>
-            {Example(javaRef)}
+            {Section(javaRef)}
         </>
     )
 }
 
 
-function Example(javaRef){
+function Section(javaRef){
     return(
-        <div className="example">
-            <div className="example-scroll-container">
-                {exampleImgGroup([0,4,1,2,3,6,7])}
+        <>
+            <div className="section">
+                <div className="section-scroll-container section-scroll-container-left">
+                    {sectionImgGroup([0,4,1,2,3,6,7])}
+                </div>
+                <div className="section-content-container section-content-container-right glass">
+                    <Menu javaRef={javaRef}></Menu>
+                </div>
             </div>
-            <div className="example-content-container glass">
-                <Menu javaRef={javaRef}></Menu>
+            <div className="section">
+                <div className="section-scroll-container ">
+                    {sectionImgGroup([0,4,1,2,3,6,7])}
+                </div>
+                <div className="section-content-container glass">
+                    <Menu javaRef={javaRef}></Menu>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
 
-function exampleImgGroup(indexes){
+function sectionImgGroup(indexes){
     const imgs = [];
     for(var i=0; i<indexes.length; i++){
         imgs.push(IMGARR[indexes[i]]);
     }
     const imgGrid = imgs.map((el,i)=>{
         return(
-            <div className='example-image-div' key={getkey()}>
-                <img alt='product' src={el} className='example-image' key={getkey()}></img>
+            <div className='section-image-div' key={getkey()}>
+                <img alt='product' src={el} className='section-image' key={getkey()}></img>
             </div>
         )
     })

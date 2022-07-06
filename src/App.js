@@ -24,9 +24,15 @@ function App() {
 
   return (
     <div className="App" >
-      <TheHead></TheHead>
-      <div className='links'>
-        <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Java</button>
+      <div className="headbar">
+        <TheHead side={"left"}></TheHead>
+        <div className='links'>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Java</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Drinks</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Food</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Dessert</button>
+        </div>
+        <TheHead side={"right"}></TheHead>
       </div>
       <div className='content' ref={contentRef}>
         <div className='intro'>Come enjoy the best cafe north of Antarctica.</div>
