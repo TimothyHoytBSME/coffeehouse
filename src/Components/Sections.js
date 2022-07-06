@@ -1,93 +1,89 @@
-import IMG1 from './Images/coffee1.webp';
-import IMG2 from './Images/coffee2.webp';
-import IMG3 from './Images/coffee3.webp';
-import IMG4 from './Images/coffee4.webp';
-import IMG5 from './Images/coffee5.webp';
-import IMG6 from './Images/coffee6.webp';
-import IMG7 from './Images/coffee7.webp';
-import IMG8 from './Images/coffee8.webp';
-import IMG9 from './Images/coffee9.webp';
-import IMG10 from './Images/coffee10.webp';
-import IMG11 from './Images/coffee11.webp';
-import IMG12 from './Images/coffee12.webp';
-import IMG13 from './Images/coffee13.webp';
-import IMG14 from './Images/coffee14.webp';
-import IMG15 from './Images/coffee15.webp';
-import IMG16 from './Images/coffee16.webp';
-import IMG18 from './Images/coffee18.webp';
-import IMG19 from './Images/coffee19.webp';
-import IMG20 from './Images/coffee20.webp';
-import IMG21 from './Images/coffee21.webp';
-import IMG22 from './Images/coffee22.webp';
-const IMGARR = [
-    IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, IMG11, IMG12, IMG13, IMG14, IMG15, IMG16, IMG18, IMG19, IMG20, IMG21, IMG22
-];
+import IMGARR from './ImageUrls.js'
 
-var nextkey = 0;
+var nextkey = 1000;
 function getkey(){
     nextkey++;
-    console.log('new key', (nextkey-1))
+    // console.log('new key', (nextkey-1))
     return nextkey-1;
 }
 
-export default function Sections({javaRef}){
+export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
     return(
         <>
-            {Section(javaRef)}
+            <div className="section" ref={javaRef}>
+                <div className="section-scroll-container section-scroll-container-left">
+                    {sectionImgGroup([0,4,1,2,3,6,7], "java")}
+                </div>
+                <div className="section-content-container section-content-container-right glass">
+                    <JavaMenu></JavaMenu>
+                </div>
+            </div>
+            <div className="section" ref={drinksRef}>
+                <div className="section-scroll-container ">
+                    {sectionImgGroup([19,20,21], "drinks")}
+                </div>
+                <div className="section-content-container glass">
+                    <DrinksMenu></DrinksMenu>
+                </div>
+            </div>
+            <div className="section" ref={foodRef}>
+                <div className="section-scroll-container section-scroll-container-left ">
+                    {sectionImgGroup([5,12,13,14], "food")}
+                </div>
+                <div className="section-content-container section-content-container-right glass">
+                    <FoodMenu></FoodMenu>
+                </div>
+            </div>
+            <div className="section" ref={dessertRef}>
+                <div className="section-scroll-container section-scroll-container-left ">
+                    {sectionImgGroup([5,12,13,14], "food")}
+                </div>
+                <div className="section-content-container section-content-container-right glass">
+                    <FoodMenu ></FoodMenu>
+                </div>
+            </div>
         </>
     )
 }
 
 
-function Section(javaRef){
-    return(
-        <>
-            <div className="section">
-                <div className="section-scroll-container section-scroll-container-left">
-                    {sectionImgGroup([0,4,1,2,3,6,7])}
-                </div>
-                <div className="section-content-container section-content-container-right glass">
-                    <Menu javaRef={javaRef}></Menu>
-                </div>
-            </div>
-            <div className="section">
-                <div className="section-scroll-container ">
-                    {sectionImgGroup([0,4,1,2,3,6,7])}
-                </div>
-                <div className="section-content-container glass">
-                    <Menu javaRef={javaRef}></Menu>
-                </div>
-            </div>
-        </>
-    );
-}
-
-function sectionImgGroup(indexes){
+function sectionImgGroup(indexes, name){
     const imgs = [];
     for(var i=0; i<indexes.length; i++){
         imgs.push(IMGARR[indexes[i]]);
     }
-    const imgGrid = imgs.map((el,i)=>{
+
+    function pick(){
+        if(name === "java"){
+            return("section-image-div java-slide");
+        } else if(name === "drinks"){
+            return("section-image-div drinks-slide");
+        } else if(name === 'food'){
+            return('section-image-div food-slide')
+        }
+    }
+    const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs]
+    const imgGrid = imgs2.map((el,i)=>{
         return(
-            <div className='section-image-div' key={getkey()}>
-                <img alt='product' src={el} className='section-image' key={getkey()}></img>
+            <div className={pick()} key={getkey()}>
+                <img alt='product' src={el} className='section-image' ></img>
             </div>
         )
     })
-    return [...imgGrid, ...imgGrid, ...imgGrid, ...imgGrid];
+    return imgGrid;
 }
 
-function Menu({javaRef}){
+function JavaMenu(){
     return(
         <>
-            <div className='section-title' ref={javaRef} >JAVA</div>
+            <div className='section-title' >JAVA</div>
             <div className='section-description'>We serve the finest varieties of hot and cold coffees, all made to order from fresh roasted beans.</div>
             <div className='section-list'>
-               {coffeeTypes.map((el)=>{
+               {coffeeTypes.map((el, i)=>{
                     return(
                         <div className='section-item' key={getkey()}>
-                            <div className='section-item-name'>{el.name}</div>
-                            <div className='section-item-desc'>{el.desc}</div>
+                            <div className='section-item-name' >{el.name}</div>
+                            <div className='section-item-desc' >{el.desc}</div>
                         </div>
                     )
                })}
@@ -96,7 +92,43 @@ function Menu({javaRef}){
     )
 }
 
+function DrinksMenu(){
+    return(
+        <>
+            <div className='section-title' >Other Drinks</div>
+            <div className='section-description'>Not in the mood for coffee?</div>
+            <div className='section-list'>
+               {otherDrinkTypes.map((el, i)=>{
+                    return(
+                        <div className='section-item' key={getkey()}>
+                            <div className='section-item-name' >{el.name}</div>
+                            <div className='section-item-desc' >{el.desc}</div>
+                        </div>
+                    )
+               })}
+            </div>
+        </>
+    )
+}
 
+function FoodMenu(){
+    return(
+        <>
+            <div className='section-title' >Food (Sandwiches and Salads)</div>
+            <div className='section-description'>Create your perfect combination: cold, toasted, or panini grilled.</div>
+            <div className='section-list'>
+               {foodTypes.map((el, i)=>{
+                    return(
+                        <div className='section-item' key={getkey()}>
+                            <div className='section-item-name' >{el.name}</div>
+                            <div className='section-item-desc' >{el.desc}</div>
+                        </div>
+                    )
+               })}
+            </div>
+        </>
+    )
+}
 
 const coffeeTypes = [
     { name: "AFFOGATO", desc: "Espresso poured on a vanilla ice cream. Served in a cappuccino cup."}
@@ -129,5 +161,19 @@ const otherDrinkTypes = [
     ,{name: 'COCKTAILS', desc: 'We may not have alcohol, but we have a world-class bar, equipped with everything needed to make the best virgin drinks.'}
     ,{name: 'CARBONATED', desc: 'Sorry, we do not serve branded soft drinks. However, we make a variety of italian sodas and seltzers.'}
     ,{name: 'JUICES', desc: 'We stock an amazing array of fruits and vegetables, and we can juice them all.'}
-]
+];
 
+const foodTypes = [
+    { name: 'BREADS', desc: 'Ciabatta, baguette, brioche, pita, rye, sourdough, wheat, focaccia, vienna roll, cheese roll, multigrain, seeded, spelt. Vegan options available.'}
+    , {name: 'BAGELS', desc: 'Plain, everything, cinnamon raisin, blueberry, asiago, wheat. Vegan options available.'}
+    , {name: 'CHEESES', desc: 'Swiss, fontina, provolone, manchego, cheddar, goat, pepper jack, muenster. Vegan options available.'}
+    , {name: 'SPREADS', desc: 'Hummus (seasonal varieties, made fresh), mustard (brown, stone ground), avacado, house mayo (spicy or regular), cream cheeses (many), vegemite, pesto'}
+    , {name: 'VEGGIES', desc: 'We have most types of lettuces, pickles, peppers, onions, as well as a variety of other seasonals.'}
+    , {name: 'MEATS', desc: 'Ham, turkey, bacon, pancetta, prosciutto, peppered salami. Tofu based deli slices available. '}
+    , {name: 'SALADS', desc: 'Choose your ingredients and toppings, many seasonal items available upon request.'}
+];
+
+const dessertTypes = [
+    {name: '', desc: ''}
+    ,{name: '', desc: ''}
+];

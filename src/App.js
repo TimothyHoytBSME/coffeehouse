@@ -13,14 +13,12 @@ const handleScroll = (scrollRef, toRef) => {
   })
 };
 
-
-
 function App() {
   const javaRef = useRef(null);
+  const drinksRef = useRef(null);
+  const foodRef = useRef(null);
+  const dessertRef = useRef(null);
   const contentRef = useRef(null);
-  const logtheshit = ()=>{
-    console.log('theshit');
-  }
 
   return (
     <div className="App" >
@@ -28,27 +26,23 @@ function App() {
         <TheHead side={"left"}></TheHead>
         <div className='links'>
           <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Java</button>
-          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Drinks</button>
-          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Food</button>
-          <button className='link glass' onClick={()=>{handleScroll(contentRef, javaRef)}}>Dessert</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, drinksRef)}}>Drinks</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, foodRef)}}>Food</button>
+          <button className='link glass' onClick={()=>{handleScroll(contentRef, dessertRef)}}>Dessert</button>
         </div>
         <TheHead side={"right"}></TheHead>
       </div>
       <div className='content' ref={contentRef}>
         <div className='intro'>Come enjoy the best cafe north of Antarctica.</div>
-        <Sections javaRef={javaRef}></Sections>
+        <Sections javaRef={javaRef} drinksRef={drinksRef} foodRef={foodRef} dessertRef={dessertRef}></Sections>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     </div>
   );
 }
 
-
-
 export default App;
-
-
-
-
-
-
-
