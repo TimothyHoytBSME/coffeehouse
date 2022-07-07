@@ -26,7 +26,7 @@ function getSide(side){
       <>
         <div className='info'>
           <a href="tel:5556425282"><div className='number'>555· 642· JAVA (5282)</div></a>
-          <a href='https://goo.gl/maps/pbku7fjepfUb84kC9' target="_blank">
+          <a href='https://goo.gl/maps/pbku7fjepfUb84kC9' target="_blank" rel="noreferrer">
             <address className='address'>
               <div className='address-street'>5690 Cottle Rd</div>
               <div className='address-city'>San Jose, CA 95123</div>

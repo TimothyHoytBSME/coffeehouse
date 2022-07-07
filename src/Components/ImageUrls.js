@@ -1,26 +1,29 @@
 
-import IMG1 from './Images/coffee1.webp';
-import IMG2 from './Images/coffee2.webp';
-import IMG3 from './Images/coffee3.webp';
-import IMG4 from './Images/coffee4.webp';
-import IMG5 from './Images/coffee5.webp';
-import IMG6 from './Images/coffee6.webp';
-import IMG7 from './Images/coffee7.webp';
-import IMG8 from './Images/coffee8.webp';
-import IMG9 from './Images/coffee9.webp';
-import IMG10 from './Images/coffee10.webp';
-import IMG11 from './Images/coffee11.webp';
-import IMG12 from './Images/coffee12.webp';
-import IMG13 from './Images/coffee13.webp';
-import IMG14 from './Images/coffee14.webp';
-import IMG15 from './Images/coffee15.webp';
-import IMG16 from './Images/coffee16.webp';
-import IMG17 from './Images/coffee17.webp';
-import IMG18 from './Images/coffee18.webp';
-import IMG19 from './Images/coffee19.webp';
-import IMG20 from './Images/coffee20.webp';
-import IMG21 from './Images/coffee21.webp';
-import IMG22 from './Images/coffee22.webp';
-const IMGARR = [  IMG1, IMG2, IMG3, IMG4, IMG5, IMG6, IMG7, IMG8, IMG9, IMG10, IMG11, IMG12, IMG13, IMG14, IMG15, IMG16, IMG17, IMG18, IMG19, IMG20, IMG21, IMG22];
+import COFFEE1 from './Images/coffee1.webp';
+import COFFEE2 from './Images/coffee2.webp';
+import COFFEE3 from './Images/coffee3.webp';
+import COFFEE4 from './Images/coffee4.webp';
+import COFFEE5 from './Images/coffee5.webp';
+import COFFEE6 from './Images/coffee6.webp';
+import COFFEE7 from './Images/coffee7.webp';
+import DRINKS1 from './Images/drinks1.webp';
+import DRINKS2 from './Images/drinks2.webp';
+import DRINKS3 from './Images/drinks3.webp';
+import FOOD1 from './Images/food1.webp';
+import FOOD2 from './Images/food2.webp';
+import FOOD3 from './Images/food3.webp';
+import FOOD4 from './Images/food4.webp';
+import DESSERTS1 from './Images/desserts1.webp';
+import DESSERTS2 from './Images/desserts2.webp';
+import DESSERTS3 from './Images/desserts3.webp';
+import DESSERTS4 from './Images/desserts4.webp';
+import DESSERTS5 from './Images/desserts5.webp';
+import DESSERTS6 from './Images/desserts6.webp';
 
+const IMGARR = [  
+    [COFFEE1, COFFEE2, COFFEE3, COFFEE4, COFFEE5, COFFEE6, COFFEE7]
+    ,[DRINKS1, DRINKS2, DRINKS3]
+    ,[FOOD1, FOOD2, FOOD3, FOOD4]
+    ,[DESSERTS1, DESSERTS2, DESSERTS3, DESSERTS4, DESSERTS5, DESSERTS6]
+];
 export default IMGARR;

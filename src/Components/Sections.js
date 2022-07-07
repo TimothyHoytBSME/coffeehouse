@@ -12,7 +12,7 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
         <>
             <div className="section" ref={javaRef}>
                 <div className="section-scroll-container section-scroll-container-left">
-                    {sectionImgGroup([0,4,1,2,3,6,7], "java")}
+                    {sectionImgGroup("java")}
                 </div>
                 <div className="section-content-container section-content-container-right glass">
                     <JavaMenu></JavaMenu>
@@ -20,7 +20,7 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
             </div>
             <div className="section" ref={drinksRef}>
                 <div className="section-scroll-container ">
-                    {sectionImgGroup([19,20,21], "drinks")}
+                    {sectionImgGroup("drinks")}
                 </div>
                 <div className="section-content-container glass">
                     <DrinksMenu></DrinksMenu>
@@ -28,7 +28,7 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
             </div>
             <div className="section" ref={foodRef}>
                 <div className="section-scroll-container section-scroll-container-left ">
-                    {sectionImgGroup([5,12,13,14], "food")}
+                    {sectionImgGroup("food")}
                 </div>
                 <div className="section-content-container section-content-container-right glass">
                     <FoodMenu></FoodMenu>
@@ -36,7 +36,7 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
             </div>
             <div className="section" ref={dessertRef}>
                 <div className="section-scroll-container">
-                    {sectionImgGroup([5,12,13,14], "dessert")}
+                    {sectionImgGroup("dessert")}
                 </div>
                 <div className="section-content-container glass">
                     <DessertMenu ></DessertMenu>
@@ -47,12 +47,11 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
 }
 
 
-function sectionImgGroup(indexes, name){
-    const imgs = [];
-    for(var i=0; i<indexes.length; i++){
-        imgs.push(IMGARR[indexes[i]]);
-    }
-
+function sectionImgGroup(name){
+    var which = 0;
+    which=(name==="java")? 0: (name==="drinks")? 1: (name==="food")? 2: 3;  
+    const imgs = IMGARR[which];
+    const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs]
     function pick(){
         if(name === "java"){
             return("section-image-div java-slide");
@@ -64,7 +63,6 @@ function sectionImgGroup(indexes, name){
             return('section-image-div dessert-slide')
         }
     }
-    const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs]
     const imgGrid = imgs2.map((el,i)=>{
         return(
             <div className={pick()} key={getkey()}>

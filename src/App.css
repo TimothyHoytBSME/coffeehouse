@@ -36,12 +36,11 @@ a{
   text-decoration: none;
 }
 
-
 .glass{
   border-radius: var(--radius);
   background-color: var(--color-head);
   box-shadow: -3px 3px 6px #000000aa;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(4px);
   padding: 0.5rem;
 }
 
@@ -55,10 +54,35 @@ a{
   height: 100vh;
   color: var(--color-name);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background: rgba(0,0,0,0) url('./Components/Images/coffee17.webp');
   background-size: cover;
   background-position: center center;
   overflow: hidden;
+}
+
+.App{ 
+  animation: bgfade 40s infinite; 
+  background-size:cover; 
+  background-position:center; 
+  background-color:#000;
+  position:relative; 
+} 
+@keyframes bgfade { 
+  0% { background-image: url(./Components/Images/background1.webp); } 
+  25% { background-image: url(./Components/Images/background2.webp); } 
+  50% { background-image: url(./Components/Images/background3.webp); } 
+  75% { background-image: url(./Components/Images/background4.webp); } 
+  100% { background-image: url(./Components/Images/background1.webp); }  
+} /****** add a background overlay *******/ 
+
+#animated-background:before { 
+  content:""; 
+  position:absolute; 
+  top:0; 
+  bottom:0; 
+  left:0; 
+  right:0; 
+  background-color:black; 
+  opacity:0.3; 
 }
 
 .headbar{
@@ -69,7 +93,6 @@ a{
   max-width: 100vw;
   height: auto;
   margin-top: 1rem;
-  /* margin-right: 5rem; */
 }
 
 .head{
@@ -168,7 +191,7 @@ a{
 
 .intro{
   font-family: "Times New Roman", cursive;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   text-align: center;
   font-style: italic;
@@ -177,7 +200,8 @@ a{
   width: auto;
   padding: 0.75rem;
   padding-top: 0.5rem;
-  backdrop-filter: blur(50px); 
+  backdrop-filter: blur(8px); 
+  border: solid 1px var(--color-logo-shadow);
   border-radius: var(--radius);
 }
 
@@ -287,41 +311,21 @@ a{
 }
 
 @keyframes slideJava {
-
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, calc(calc(var(--image-width) * -7.833) + calc(1vw * -8.5))); 
-  }
+  0% {transform: translate(0, 0);}
+  100% {transform: translate(0, calc(calc(var(--image-width) * -7.833) + calc(1vw * -8.5))); }
 }
 
 @keyframes slideDrinks {
-
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, calc(calc(var(--image-width) * -2.47) + calc(1vw * -4))); 
-  }
+  0% {transform: translate(0, 0);}
+  100% {transform: translate(0, calc(calc(var(--image-width) * -2.47) + calc(1vw * -4)));}
 }
 
 @keyframes slideFood {
-
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, calc(calc(var(--image-width) * -4.12) + calc(1vw * -4.75))); 
-  }
+  0% { transform: translate(0, 0);}
+  100% { transform: translate(0, calc(calc(var(--image-width) * -4.12) + calc(1vw * -4.75)));}
 }
 
 @keyframes slideDessert {
-
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, calc(calc(var(--image-width) * -4.12) + calc(1vw * -4.75))); 
-  }
+  0% {transform: translate(0, 0);}
+  100% { transform: translate(0, calc(calc(var(--image-width) * -6.4) + calc(1vw * -7)));}
 }
