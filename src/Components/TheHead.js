@@ -25,11 +25,13 @@ function getSide(side){
     return(
       <>
         <div className='info'>
-          <div className='number'>555· 642· JAVA (5282)</div>
-          <div className='address'>
-            <div className='address-street'>5837 Mocha Hills Blvd.</div>
-            <div className='address-city'>Beans, CA 90233</div>
-          </div>
+          <a href="tel:5556425282"><div className='number'>555· 642· JAVA (5282)</div></a>
+          <a href='https://goo.gl/maps/pbku7fjepfUb84kC9' target="_blank">
+            <address className='address'>
+              <div className='address-street'>5690 Cottle Rd</div>
+              <div className='address-city'>San Jose, CA 95123</div>
+            </address>
+          </a>
         </div>
       </>
     )
