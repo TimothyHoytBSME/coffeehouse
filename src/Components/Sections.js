@@ -35,11 +35,11 @@ export default function Sections({javaRef, drinksRef, foodRef, dessertRef}){
                 </div>
             </div>
             <div className="section" ref={dessertRef}>
-                <div className="section-scroll-container section-scroll-container-left ">
-                    {sectionImgGroup([5,12,13,14], "food")}
+                <div className="section-scroll-container">
+                    {sectionImgGroup([5,12,13,14], "dessert")}
                 </div>
-                <div className="section-content-container section-content-container-right glass">
-                    <FoodMenu ></FoodMenu>
+                <div className="section-content-container glass">
+                    <DessertMenu ></DessertMenu>
                 </div>
             </div>
         </>
@@ -60,6 +60,8 @@ function sectionImgGroup(indexes, name){
             return("section-image-div drinks-slide");
         } else if(name === 'food'){
             return('section-image-div food-slide')
+        } else if(name === 'dessert'){
+            return('section-image-div dessert-slide')
         }
     }
     const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs]
@@ -130,6 +132,25 @@ function FoodMenu(){
     )
 }
 
+function DessertMenu(){
+    return(
+        <>
+            <div className='section-title' >Desserts and Shakes</div>
+            <div className='section-description'>From light to decadant, satisfy that sweet tooth with some special treats.</div>
+            <div className='section-list'>
+               {dessertTypes.map((el, i)=>{
+                    return(
+                        <div className='section-item' key={getkey()}>
+                            <div className='section-item-name' >{el.name}</div>
+                            <div className='section-item-desc' >{el.desc}</div>
+                        </div>
+                    )
+               })}
+            </div>
+        </>
+    )
+}
+
 const coffeeTypes = [
     { name: "AFFOGATO", desc: "Espresso poured on a vanilla ice cream. Served in a cappuccino cup."}
     , {name: 'AMERICANO', desc: 'Espresso with added hot water (100 to 150 ml). Often served in a cappuccino cup. (The espresso is added into the hot water rather than all the water being flowed through the coffee that would lead to over extraction.)'}
@@ -156,7 +177,6 @@ const coffeeTypes = [
 
 const otherDrinkTypes = [
     { name: "SMOOTHIES", desc: "Delicious, smooth, cold, and creamy. Choose your base (dairy, soy, coconut, almond, oat), choose your ingredients (fruits, powders, etc.), and enjoy!"}
-    ,{name: 'SHAKES', desc: 'Classic ice-cream shakes made from a range of flavors and add-ins.'}
     ,{name: 'TEAS', desc: 'Black, green, white, floral, herbal, hot, cold, bubble? We have it all.'}
     ,{name: 'COCKTAILS', desc: 'We may not have alcohol, but we have a world-class bar, equipped with everything needed to make the best virgin drinks.'}
     ,{name: 'CARBONATED', desc: 'Sorry, we do not serve branded soft drinks. However, we make a variety of italian sodas and seltzers.'}
@@ -174,6 +194,10 @@ const foodTypes = [
 ];
 
 const dessertTypes = [
-    {name: '', desc: ''}
-    ,{name: '', desc: ''}
+    {name: 'SHAKES', desc: 'Classic ice-cream shakes made from a range of flavors and add-ins.'}
+    ,{name: 'ICECREAM', desc: 'Ask for the seasonal menu! We always keep the basics, and source from a local creamery.'}
+    ,{name: 'MUFFINS', desc: 'Bran, blueberry, cranberry orange, lemon, and some other rotating flavors. Locally baked daily.'}
+    ,{name: 'PASTRIES', desc: 'Each day a variety of fresh pastries is selected and stocked from a local bakery.'}
+    ,{name: 'PIE', desc: "Come see the viewing case for today's available flavors, made fresh locally."}
+    ,{name: 'COOKIES', desc: 'Just like with our pastries and pies, always something new and delicious.'}
 ];
