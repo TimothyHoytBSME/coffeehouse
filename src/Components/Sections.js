@@ -1,4 +1,4 @@
-import IMGARR from './ImageUrls.js'
+import IMGARR, {SMALLIMGARR} from './ImageUrls.js'
 
 var nextkey = 1000;
 function getkey(){
@@ -51,7 +51,9 @@ function sectionImgGroup(name){
     var which = 0;
     which=(name==="java")? 0: (name==="drinks")? 1: (name==="food")? 2: 3;  
     const imgs = IMGARR[which];
-    const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs]
+    const smallimgs =  SMALLIMGARR[which];
+    const imgs2 = [...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs, ...imgs];
+    const smallimgs2 = [...smallimgs, ...smallimgs, ...smallimgs, ...smallimgs, ...smallimgs, ...smallimgs, ...smallimgs, ...smallimgs];
     function pick(){
         if(name === "java"){
             return("section-image-div java-slide");
@@ -66,7 +68,12 @@ function sectionImgGroup(name){
     const imgGrid = imgs2.map((el,i)=>{
         return(
             <div className={pick()} key={getkey()}>
-                <img alt='product' src={el} className='section-image' ></img>
+                <img 
+                    alt='product' 
+                    className='section-image' 
+                    src={el} 
+                    srcSet={`${smallimgs2[i]} 300w, ${el} 1337w`}                   
+                    ></img>
             </div>
         )
     })
