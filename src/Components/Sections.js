@@ -3,7 +3,6 @@ import IMGARR, {SMALLIMGARR} from './ImageUrls.js'
 var nextkey = 1000;
 function getkey(){
     nextkey++;
-    // console.log('new key', (nextkey-1))
     return nextkey-1;
 }
 
@@ -72,7 +71,7 @@ function sectionImgGroup(name){
                     alt='product' 
                     className='section-image' 
                     src={el} 
-                    srcSet={`${smallimgs2[i]} 300w, ${el} 1337w`}                   
+                    srcSet={`${smallimgs2[i]} 300w, ${el} 600w`}                   
                     ></img>
             </div>
         )
@@ -141,7 +140,7 @@ function DessertMenu(){
     return(
         <>
             <div className='section-title' >Desserts and Shakes</div>
-            <div className='section-description'>From light to decadant, satisfy that sweet tooth with some special treats.</div>
+            <div className='section-description'>From light to decadent, satisfy that sweet tooth with some special treats.</div>
             <div className='section-list'>
                {dessertTypes.map((el, i)=>{
                     return(
@@ -176,7 +175,7 @@ const coffeeTypes = [
     , {name: 'ICED MOCHA', desc: 'Cold Caffè mocha. Prepared like iced latte, but garnished and flavoured like caffè mocha (about 300 ml). Served in a latte glass.'}
     , {name: 'LATTE MACCHIATO', desc: 'Like a traditional caffè latte, but with a thicker layer of foam. Often made by pouring an espresso last into the milk (drink size about 300 ml). Served in a latte glass.'}
     , {name: 'LUNGO', desc: 'An espresso pulled long (50 to60 ml). Served in an espresso/cappuccino cup.'}
-    , {name: 'POUR OVER', desc: 'A scientic approach to hand-brewed coffee, using precise temperatures, grinds, quantities, and timing to produce a cup like no other.'}
+    , {name: 'POUR OVER', desc: 'A scientific approach to hand-brewed coffee, using precise temperatures, grinds, quantities, and timing to produce a cup like no other.'}
     , {name: 'RISTRETTO', desc: 'A very short shot of espresso (about 20 ml). Served in an espresso cup.'}
 ];
 
@@ -192,7 +191,7 @@ const foodTypes = [
     { name: 'BREADS', desc: 'Ciabatta, baguette, brioche, pita, rye, sourdough, wheat, focaccia, vienna roll, cheese roll, multigrain, seeded, spelt. Vegan options available.'}
     , {name: 'BAGELS', desc: 'Plain, everything, cinnamon raisin, blueberry, asiago, wheat. Vegan options available.'}
     , {name: 'CHEESES', desc: 'Swiss, fontina, provolone, manchego, cheddar, goat, pepper jack, muenster. Vegan options available.'}
-    , {name: 'SPREADS', desc: 'Hummus (seasonal varieties, made fresh), mustard (brown, stone ground), avacado, house mayo (spicy or regular), cream cheeses (many), vegemite, pesto'}
+    , {name: 'SPREADS', desc: 'Hummus (seasonal varieties, made fresh), mustard (brown, stone ground), avocado, house mayo (spicy or regular), cream cheeses (many), vegemite, pesto'}
     , {name: 'VEGGIES', desc: 'We have most types of lettuces, pickles, peppers, onions, as well as a variety of other seasonals.'}
     , {name: 'MEATS', desc: 'Ham, turkey, bacon, pancetta, prosciutto, peppered salami. Tofu based deli slices available. '}
     , {name: 'SALADS', desc: 'Choose your ingredients and toppings, many seasonal items available upon request.'}
@@ -200,7 +199,7 @@ const foodTypes = [
 
 const dessertTypes = [
     {name: 'SHAKES', desc: 'Classic ice-cream shakes made from a range of flavors and add-ins.'}
-    ,{name: 'ICECREAM', desc: 'Ask for the seasonal menu! We always keep the basics, and source from a local creamery.'}
+    ,{name: 'ICE CREAM', desc: 'Ask for the seasonal menu! We always keep the basics, and source from a local creamery.'}
     ,{name: 'MUFFINS', desc: 'Bran, blueberry, cranberry orange, lemon, and some other rotating flavors. Locally baked daily.'}
     ,{name: 'PASTRIES', desc: 'Each day a variety of fresh pastries is selected and stocked from a local bakery.'}
     ,{name: 'PIE', desc: "Come see the viewing case for today's available flavors, made fresh locally."}
